@@ -1,0 +1,48 @@
+@media (max-width: 720px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+.Images {
+  margin-top: 100px;
+  width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: black 10px 10px 10px;
+  border: 10px solid #20000091;
+  border-radius: 30px;
+}
+
+.recenzijeContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  margin-top: 5%;
+  box-shadow: 10px 10px 10px;
+  border: 5px solid #000000;
+  border-radius: 50px;
+  padding-bottom: 50px;
+  width: 60%;
+  background-color: #d4d4d4;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.recenzijaTitle {
+  margin-top: 50px;
+}
+
+.contact-page {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url(/public/images/contact-background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
