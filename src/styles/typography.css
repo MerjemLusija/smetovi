@@ -36,8 +36,6 @@ a:hover {
   color: var(--accent);
 }
 
-p {
-}
 .prose p {
   margin-bottom: 2em;
 }
