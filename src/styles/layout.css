@@ -14,27 +14,6 @@
   border: 10px solid #20000091;
   border-radius: 30px;
 }
-
-.recenzijeContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: auto;
-  margin-top: 5%;
-  box-shadow: 10px 10px 10px;
-  border: 5px solid #000000;
-  border-radius: 50px;
-  padding-bottom: 50px;
-  width: 60%;
-  background-color: #d4d4d4;
-  padding-left: 50px;
-  padding-right: 50px;
-}
-
-.recenzijaTitle {
-  margin-top: 50px;
-}
-
 .contact-page {
   background-image: linear-gradient(
       rgba(255, 255, 255, 1),
