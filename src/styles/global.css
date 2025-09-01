@@ -1,8 +1,6 @@
 @import url("/node_modules/@fortawesome/fontawesome-free/css/all.min.css");
 @import "base.css";
 @import "typography.css";
-@import "layout.css";
-@import "components.css";
 @import "utilities.css";
 
 @tailwind base;
