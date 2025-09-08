@@ -32,6 +32,25 @@ export default function MapComponent({ pins }: MapComponentProps) {
           className: "parkingIcon",
         });
 
+        const monumentIcon = L.icon({
+          iconUrl: "/monument-icon.svg",
+          iconSize: [30, 30],
+          className: 'monumentIcon'
+        });
+
+        function makeIcon(html: string, className = 'customIcon'){
+          return L.divIcon({
+            html,
+            iconSize: [20, 20],
+            className
+          })
+        }
+
+        const iconHtmlMap: Record<string, string> = {
+          Restoran: '<i class="fas fa-utensils fa-2x"></i>',
+          "Konjički klub SMET": '<i class="fas fa-paw fa-2x"></i>'
+        }
+
         const map = L.map("map", {
           center: [44.24541, 17.96368],
           zoom: 11,
@@ -104,11 +123,13 @@ export default function MapComponent({ pins }: MapComponentProps) {
                 style="word-wrap: break-word; padding-inline:5px;"
               > ${pin.title} </a>
             </div> `;
-
-          L.marker(pin.location).addTo(map).bindPopup(popupContent).openPopup();
+          
+          var customIcon = iconHtmlMap[pin.type] ? makeIcon(iconHtmlMap[pin.type], pin.type + 'Icon') : null;
+          var markerOptions = customIcon ? {icon: customIcon} : {};
+          L.marker(pin.location, markerOptions).addTo(map).bindPopup(popupContent).openPopup();
         });
 
-        L.marker(smetoviPin.location)
+        L.marker(smetoviPin.location, {icon: monumentIcon})
           .addTo(map)
           .bindPopup(
             `
