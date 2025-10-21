@@ -1,0 +1,103 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getWeatherIcon } from "../components/WeatherComponent/weatherIconMap";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        <main class="flex flex-col md:flex-row justify-center w-[90%] lg:w-[85%] mx-auto mt-24">
+            <div class="w-full flex flex-col">
+                <div class="flex flex-col mb-8"> 
+                    <div class="flex w-full bg-[#FEC84D] pt-2 pl-3 pb-1 mb-2">
+                        <i class="fa fa-exclamation-triangle pr-2"></i>
+                        <div class="font-bold"> Žuto upozorenje za snijeg/led </div>
+                    </div>
+                    <div class="flex h-11">
+                        <div class="flex w-full pt-2 pl-3 pb-1 pr-2 shadow-[0_0_15px_rgba(0,0,0,0.15)]">
+                            <div class="grow font-semibold"> Automobilska cesta </div>
+                            <div class="font-bold"> Prohodna </div>
+                        </div>
+                        <div class="bg-green-600 w-1 h-full"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row justify-center">
+                <section class="weather-section weather-info w-full md:w-1/2 box-border h-100 m-3">
+                        <div class="flex flex-col">
+                            <div class="flex mb-8">
+                                <div class="grow text-6xl font-bold"> 1°C </div>
+                                <div class="flex flex-col">
+                                    <div class="font-bold"> Smetovi </div>
+                                    <div> Srijeda, 25.12.2024. </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col mb-20">
+                                <div class="ml-auto mr-auto mb-8">
+                                    <img src={getWeatherIcon(0)} alt="Weather Icon" class="w-[200px] h-[200px]">
+                                </div>
+                                <div class="flex justify-between ml-20 mr-20">
+                                    <div class="flex flex-col">
+                                        <div> Padavine </div>
+                                        <div class="ml-auto mr-auto"> <span class="font-bold text-3xl">65</span>% </div>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <div> Vlažnost </div>
+                                        <div class="ml-auto mr-auto"> <span class="font-bold text-3xl">82</span>% </div>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <div> Vjetar </div>
+                                        <div class="ml-auto mr-auto"> <span class="font-bold text-3xl">11</span>km/h </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col">
+                                <div class="flex mb-4">
+                                    <div class="grow font-bold text-lg"> Danas </div>
+                                    <div class="text-base"> Vrijeme za narednih 7 dana </div>
+                                </div>
+                                <div class="flex overflow-x-auto space-x-2 p-2">
+                                    {
+                                        Array.from({length: 7}).map((_, i) => (
+                                            <div class="flex flex-col justify-between shadow-2xl shadow-gray-300 min-w-[90px] h-[120px]">
+                                                <div class="text-lg pt-2 pl-2"> 1°C </div>
+                                                <div class="ml-auto mr-auto mb-2 mt-1">
+                                                    <img src={getWeatherIcon(0)} alt="Weather Icon" class="h-[36px] w-[36px]">
+                                                </div>
+                                                <div class="ml-auto mr-auto text-base"> {15+i}:00 </div>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="flex flex-col weather-section live-camera w-full md:w-1/2 box-border h-100 m-3">
+                        <div class="font-bold"> Live Kamere </div>
+                        <div class="border h-[250px] flex flex-col justify-center items-center mb-4 mt-4">
+                            <div>
+                                <i class="fa-solid fa-video mx-4"></i>
+                                <div>Uskoro</div> 
+                            </div>
+                        </div>
+                        <div class="text-gray-700 text-base"> Lokacija</div>
+                        <div class="border h-[250px] flex flex-col justify-center items-center mb-4 mt-4">
+                            <div>
+                                <i class="fa-solid fa-video mx-4"></i>
+                                <div>Uskoro</div> 
+                            </div>
+                        </div>
+                        <div class="text-gray-700 text-base"> Lokacija</div>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <Footer />
+    </body>
+</html>
