@@ -37,7 +37,9 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
     </div>
     <div class="flex">
       <div class="weather flex flex-col justify-center items-center mr-2">
-        <Weather client:load/>
+        <HeaderLink href="/weather">
+          <Weather client:load/>
+        </HeaderLink>
       </div>  
       <!-- Move this to contact page and footer pls
       <a 
