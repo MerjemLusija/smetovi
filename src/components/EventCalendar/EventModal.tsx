@@ -1,27 +1,43 @@
 import React from 'react'
 
-const EventModal = ({ isOpen, onClose, event }) => {
+const EventModal = ({ isOpen, onClose, event }: { isOpen: boolean, onClose: () => void, event: any }) => {
   if (!isOpen || !event) return null;
 
   return (
-    <div className="fixed z-20 inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white p-6 rounded-lg max-w-lg w-full">
-        <h2 className="text-2xl font-bold mb-4">{event.title}</h2>
-        <p className="mb-2"><strong>Date:</strong> {event.date}</p>
-        <p className="mb-2"><strong>Time:</strong> {event.time}</p>
-        <p className="mb-2"><strong>Location:</strong> {event.location}</p>
-        <p className="mb-4">{event.description}</p>
-        <div className='flex gap-2'>
-            <button 
-            className="bg-[#46479e] text-white px-4 py-2 rounded"
-            >
-            Register
-            </button>
+    <div className="fixed z-[9999] inset-0 bg-black bg-opacity-60 flex items-center justify-center backdrop-blur-sm transition-opacity">
+      <div className="bg-white p-8 rounded-2xl shadow-2xl max-w-lg w-full transform scale-100 transition-transform relative animate-zoom">
+        <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-800 text-2xl font-bold">&times;</button>
+        
+        {event.category && (
+          <span className="inline-block bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-3">
+            {event.category}
+          </span>
+        )}
+        
+        <h2 className="text-3xl font-exo2 font-bold mb-6 text-sky-950">{event.title}</h2>
+        
+        <div className="space-y-3 mb-6 text-gray-700">
+          <p className="flex items-center"><i className="fa-regular fa-calendar w-6 text-sky-700"></i> <strong>Datum:</strong> <span className="ml-2">{event.date}</span></p>
+          <p className="flex items-center"><i className="fa-regular fa-clock w-6 text-sky-700"></i> <strong>Vrijeme:</strong> <span className="ml-2">{event.time}</span></p>
+          <p className="flex items-center"><i className="fa-solid fa-location-dot w-6 text-sky-700"></i> <strong>Lokacija:</strong> <span className="ml-2">{event.location}</span></p>
+        </div>
+        
+        <div className="border-t border-gray-100 pt-4 mb-8">
+            <h4 className="text-sm font-semibold text-gray-400 uppercase mb-2">Opis događaja</h4>
+            <p className="text-gray-800 leading-relaxed">{event.description}</p>
+        </div>
+        
+        <div className='flex gap-3 justify-end'>
             <button 
             onClick={onClose}
-            className="bg-[#46479e] text-white px-4 py-2 rounded"
+            className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold px-6 py-2 rounded-lg transition-colors"
             >
-            Close
+            Zatvori
+            </button>
+            <button 
+            className="bg-sky-950 hover:bg-sky-900 text-white font-semibold px-6 py-2 rounded-lg shadow-md transition-colors"
+            >
+            Pridruži se
             </button>
         </div>
       </div>

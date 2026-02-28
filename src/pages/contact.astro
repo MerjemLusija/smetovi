@@ -56,85 +56,86 @@ import PageLayout from "../layouts/PageLayout.astro";
       </form>
     </section>
     <section
-      class="flex contact-form-section contact-form w-full md:w-1/2 p-1 box-border h-100 m-3"
+      class="flex contact-form-section contact-form w-full md:w-1/2 p-2 sm:p-6 box-border h-100 m-3"
     >
       <form
         id="contactForm"
-        class="space-y-4 h-120 flex flex-col flex-1 items-start"
+        class="space-y-6 flex flex-col flex-1 items-start bg-white p-8 rounded-xl shadow-xl border border-gray-100"
         onsubmit="return false;"
       >
-        <div class="w-full flex flex-col md:flex-row gap-5 justify-between">
-          <div class="w-full">
-            <label for="name" class="block text-sm font-medium text-gray-700"
+        <div class="w-full flex flex-col md:flex-row gap-6 justify-between">
+          <div class="w-full relative float-label-group">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full p-4 pt-6 pb-2 border border-gray-300 rounded-lg outline-none focus:border-sky-950 focus:ring-1 focus:ring-sky-950 transition-all peer bg-gray-50 focus:bg-white"
+              placeholder=" "
+            />
+            <label for="name" class="absolute left-4 top-4 text-gray-500 transition-all peer-focus:text-xs peer-focus:top-2 peer-focus:text-sky-950 peer-valid:text-xs peer-valid:top-2 pointer-events-none"
               >Ime</label
             >
           </div>
-          <div class="w-full">
+          <div class="w-full relative float-label-group">
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              required
+              class="w-full p-4 pt-6 pb-2 border border-gray-300 rounded-lg outline-none focus:border-sky-950 focus:ring-1 focus:ring-sky-950 transition-all peer bg-gray-50 focus:bg-white"
+              placeholder=" "
+            />
             <label
               for="lastName"
-              class="block text-sm font-medium text-gray-700">Prezime</label
+              class="absolute left-4 top-4 text-gray-500 transition-all peer-focus:text-xs peer-focus:top-2 peer-focus:text-sky-950 peer-valid:text-xs peer-valid:top-2 pointer-events-none">Prezime</label
             >
           </div>
         </div>
-        <div class="w-full flex flex-col md:flex-row gap-2">
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            class="w-full p-2 border border-gray-300 rounded"
-            placeholder="Vaše ime"
-          />
 
+        <div class="w-full relative float-label-group">
           <input
-            type="text"
-            id="lastName"
-            name="lastName"
+            type="email"
+            id="email"
+            name="email"
             required
-            class="w-full p-2 border border-gray-300 rounded"
-            placeholder="Vaše prezime"
+            class="w-full p-4 pt-6 pb-2 border border-gray-300 rounded-lg outline-none focus:border-sky-950 focus:ring-1 focus:ring-sky-950 transition-all peer bg-gray-50 focus:bg-white"
+            placeholder=" "
           />
+          <label for="email" class="absolute left-4 top-4 text-gray-500 transition-all peer-focus:text-xs peer-focus:top-2 peer-focus:text-sky-950 peer-valid:text-xs peer-valid:top-2 pointer-events-none"
+            >Vaša e-mail adresa</label
+          >
         </div>
 
-        <label for="email" class="block text-sm font-medium text-gray-700"
-          >Email:</label
-        >
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          class="w-full p-2 border border-gray-300 rounded"
-          placeholder="Vaša e-mail adresa"
-        />
+        <div class="w-full relative float-label-group">
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            required
+            class="w-full p-4 pt-6 pb-2 border border-gray-300 rounded-lg outline-none focus:border-sky-950 focus:ring-1 focus:ring-sky-950 transition-all peer bg-gray-50 focus:bg-white"
+            placeholder=" "
+          />
+          <label for="subject" class="absolute left-4 top-4 text-gray-500 transition-all peer-focus:text-xs peer-focus:top-2 peer-focus:text-sky-950 peer-valid:text-xs peer-valid:top-2 pointer-events-none"
+            >Predmet</label
+          >
+        </div>
 
-        <label for="subject" class="block text-sm font-medium text-gray-700"
-          >Predmet:</label
-        >
-        <input
-          type="text"
-          id="subject"
-          name="subject"
-          required
-          class="w-full p-2 border border-gray-300 rounded"
-          placeholder="O čemu nas želite kontaktirati"
-        />
+        <div class="w-full relative float-label-group flex-grow">
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            class="w-full h-full p-4 pt-6 border border-gray-300 rounded-lg outline-none focus:border-sky-950 focus:ring-1 focus:ring-sky-950 transition-all peer bg-gray-50 focus:bg-white resize-none"
+            placeholder=" "></textarea>
+           <label for="message" class="absolute left-4 top-4 text-gray-500 transition-all peer-focus:text-xs peer-focus:top-2 peer-focus:text-sky-950 peer-valid:text-xs peer-valid:top-2 pointer-events-none"
+            >Vaša poruka</label
+          >
+        </div>
 
-        <label for="message" class="block text-sm font-medium text-gray-700"
-          >Poruka:</label
-        >
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          required
-          class="w-full h-full p-5 border border-gray-300 rounded"
-          placeholder="Vaša poruka"></textarea>
-
-        <button type="submit">
-          <div class="diagonal-border px-4 py-3 w-40 bg-darkBlue text-white">
-            Pošalji
-          </div>
+        <button type="submit" class="w-full md:w-auto self-end mt-4 rounded-lg bg-sky-950 text-white font-bold px-8 py-3 shadow-lg hover:shadow-xl hover:bg-sky-900 transform hover:-translate-y-1 transition-all duration-300">
+          Pošalji poruku <i class="fa-solid fa-paper-plane ml-2"></i>
         </button>
       </form>
     </section>

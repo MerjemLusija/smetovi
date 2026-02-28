@@ -30,4 +30,15 @@ const organization = defineCollection({
   }),
 });
 
-export const collections = { blog, organization };
+const events = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    datetime: z.coerce.date(),
+    location: z.string(),
+    category: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, organization, events };

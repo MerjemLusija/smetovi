@@ -9,13 +9,10 @@ import PageLayout from "../layouts/PageLayout.astro";
   <!-- Monument -->
   <div class="flex max-sm:flex-col lg:h-screen overflow-hidden observed">
     <div class="relative w-3/5 max-sm:w-screen fade slide-left">
-      <img
-        src="/tmp-images/Monument_s.jpg"
-        alt=""
-        width="100%"
-        class="z-0 h-full w-full object-cover"
-        style="filter: brightness(1.5);"
-      />
+      <div
+        class="z-0 h-full w-full parallax-bg"
+        style="background-image: url('/tmp-images/Monument.jpg'); filter: brightness(1.2);"
+      ></div>
       <div
         class="absolute inset-0 bg-gradient-to-r max-sm:bg-gradient-to-b from-transparent from-50% to-white"
       >
@@ -140,7 +137,13 @@ import PageLayout from "../layouts/PageLayout.astro";
   }
   .show {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) translateY(0);
+  }
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 </style>
 
